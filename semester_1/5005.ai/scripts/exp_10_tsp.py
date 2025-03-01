@@ -1,8 +1,6 @@
 from functools import lru_cache
 
-
 def tsp_f(graph):
-
     @lru_cache(None)
     def visit(mask, pos):
         if mask == (1 << len(graph)) - 1:
@@ -11,6 +9,8 @@ def tsp_f(graph):
 
     return visit(1, 0)
 
+n = int(input("Enter number of cities: "))
+print("Enter adjacency matrix row by row:")
+graph = [list(map(int, input().split())) for _ in range(n)]
 
-graph = [[0, 10, 15, 20], [10, 0, 35, 25], [15, 35, 0, 30], [20, 25, 30, 0]]
-print(tsp_f(graph))
+print(f"Minimum TSP cost: {tsp_f(tuple(map(tuple, graph)))}")
