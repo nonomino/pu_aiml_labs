@@ -1,7 +1,7 @@
 from typing import List
 
 
-def solveNQueens(self, n: int) -> List[List[str]]:
+def solveNQueens(n: int) -> List[List[str]]:
     def solve(col, board, ans, lr, ud, ld, n):
         if col == n:
             ans.append([''.join(row) for row in board])
@@ -13,14 +13,18 @@ def solveNQueens(self, n: int) -> List[List[str]]:
                 ld[row - col] = 1
                 ud[row + col] = 1
                 solve(col + 1, board, ans, lr, ud, ld, n)
-                board[row][col] = '.'
+                board[row][col] = '×'
                 lr[row] = 0
                 ld[row - col] = 0
                 ud[row + col] = 0
     ans = []
-    board = [['.' for _ in range(n)] for _ in range(n)]
+    board = [['×' for _ in range(n)] for _ in range(n)]
     leftrow = [0] * n
     upperDiagonal = [0] * (2 * n - 1)
     lowerDiagonal = [0] * (2 * n - 1)
     solve(0, board, ans, leftrow, upperDiagonal, lowerDiagonal, n)
+    print(f"The queen positions for {n} queens is\n")
     return ans
+
+n = int(input("Enter the number of queens "))
+print(solveNQueens(n))
