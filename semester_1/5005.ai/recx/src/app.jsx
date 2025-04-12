@@ -105,7 +105,7 @@ export function App() {
 
   return (
     <div class="container mt-5 px-3">
-      <h3 class="title is-2 has-text-centered mb-5">Product Recommendation w/ tf.js</h3>
+      <h4 class="title is-2 has-text-centered mb-5">Product Recommendation w/ tf.js</h4>
       
       {products.length === 0 ? (
         <div class="has-text-centered">
