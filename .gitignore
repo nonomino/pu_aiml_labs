@@ -173,3 +173,4 @@ cython_debug/
 # Module-specific
 nltk_data/
 semester_2/nlp/data/
+semester_2/dl/data/
